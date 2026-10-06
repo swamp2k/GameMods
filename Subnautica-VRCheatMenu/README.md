@@ -14,7 +14,7 @@ Kræver: Subnautica (Steam), BepInEx 5 og SubmersedVR (begge installeret).
 - **Åbn/luk:** hold begge grips nede og klik på højre thumbstick.
 - Peg på en knap med højre controller og tryk på triggeren.
 - Spillet kører videre, mens menuen er åben. Højre/venstre triggers bruger ikke værktøj, mens menuen er åben.
-- Oxygen, No Cost og Freecam er **til/fra-knapper** (tryk igen for at slå fra).
+- Oxygen, No Energy, No Cost og Freecam er **til/fra-knapper** (tryk igen for at slå fra).
 
 ## Spawn-menu
 Tryk på **Spawn >** nederst i hovedmenuen. Der er flere sider: **Forrige / Næste** bladrer, **Tilbage** går til hovedmenuen. Et klik på et punkt sender `spawn <navn>`, og tingen dukker op foran dig.
@@ -28,6 +28,8 @@ Første gang spillet starter, oprettes filen
 ```
 Label | konsolkommando
 ```
+
+Har du allerede en knapfil fra en ældre version, tilføjes nye standardknapper ikke automatisk. Skriv dem ind selv (fx `No Energy | noenergy`) eller slet filen, så den oprettes påny.
 
 Eksempel: `Spawn Cyclops | spawn cyclops`. Gem filen og start spillet igen. Alle Subnauticas konsolkommandoer kan bruges.
 

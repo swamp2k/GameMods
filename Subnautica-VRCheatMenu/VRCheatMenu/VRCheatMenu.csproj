@@ -4,7 +4,7 @@
     <TargetFramework>net472</TargetFramework>
     <AssemblyName>VRCheatMenu</AssemblyName>
     <RootNamespace>VRCheatMenu</RootNamespace>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <LangVersion>latest</LangVersion>
     <!-- Ændr stien, hvis Subnautica ligger et andet sted (eller: dotnet build -p:SubnauticaDir=...) -->
     <SubnauticaDir Condition="'$(SubnauticaDir)' == ''">D:\SteamLibrary\steamapps\common\Subnautica\</SubnauticaDir>

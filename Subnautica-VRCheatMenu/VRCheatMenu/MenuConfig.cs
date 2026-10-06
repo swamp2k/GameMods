@@ -54,6 +54,7 @@ Nickel | nickel
 @"# VR Cheat Menu - én knap pr. linje:  Label | konsolkommando
 # Gem filen og start spillet igen for at se ændringerne.
 Oxygen | oxygen
+No Energy | noenergy
 No Cost | nocost
 Day | day
 Night | night
