@@ -8,11 +8,11 @@
           "inputs": [
             [
               "/user/hand/left/input/grip",
-              "held"
+              "click"
             ],
             [
               "/user/hand/right/input/grip",
-              "held"
+              "click"
             ],
             [
               "/user/hand/right/input/joystick",
