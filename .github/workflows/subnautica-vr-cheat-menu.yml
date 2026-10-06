@@ -26,3 +26,14 @@ jobs:
 
       - name: Build
         run: dotnet build Subnautica/VR-Cheat-Menu/SubnauticaVRCheats.csproj -c Release --no-restore
+
+      - name: Publish portable test build
+        run: dotnet publish Subnautica/VR-Cheat-Menu/SubnauticaVRCheats.csproj -c Release -r win-x64 --self-contained true -o artifacts/SubnauticaVRCheats
+
+      - name: Upload test build
+        uses: actions/upload-artifact@v4
+        with:
+          name: SubnauticaVRCheats-win-x64
+          path: artifacts/SubnauticaVRCheats/
+          if-no-files-found: error
+          retention-days: 14
