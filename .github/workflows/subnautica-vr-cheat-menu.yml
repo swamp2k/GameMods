@@ -1,0 +1,28 @@
+name: Subnautica VR Cheat Menu
+
+on:
+  push:
+    paths:
+      - "Subnautica/VR-Cheat-Menu/**"
+      - ".github/workflows/subnautica-vr-cheat-menu.yml"
+  pull_request:
+    paths:
+      - "Subnautica/VR-Cheat-Menu/**"
+      - ".github/workflows/subnautica-vr-cheat-menu.yml"
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore
+        run: dotnet restore Subnautica/VR-Cheat-Menu/SubnauticaVRCheats.csproj
+
+      - name: Build
+        run: dotnet build Subnautica/VR-Cheat-Menu/SubnauticaVRCheats.csproj -c Release --no-restore

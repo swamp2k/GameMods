@@ -1,0 +1,34 @@
+{
+  "action_manifest_version": 0,
+  "alias_info": {},
+  "bindings": {
+    "/actions/global": {
+      "chords": [
+        {
+          "inputs": [
+            [
+              "/user/hand/left/input/grip",
+              "held"
+            ],
+            [
+              "/user/hand/right/input/grip",
+              "held"
+            ],
+            [
+              "/user/hand/right/input/joystick",
+              "click"
+            ]
+          ],
+          "output": "/actions/global/in/togglemenu"
+        }
+      ],
+      "sources": []
+    }
+  },
+  "category": "steamvr_input",
+  "controller_type": "oculus_touch",
+  "description": "Hold both grips and click the right thumbstick to toggle the cheat menu.",
+  "name": "Subnautica VR Cheats - Quest Touch",
+  "options": {},
+  "simulated_actions": []
+}

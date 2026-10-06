@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "name": "/actions/global/in/togglemenu",
+      "type": "boolean",
+      "requirement": "suggested"
+    }
+  ],
+  "action_sets": [
+    {
+      "name": "/actions/global",
+      "usage": "leftright"
+    }
+  ],
+  "default_bindings": [
+    {
+      "controller_type": "oculus_touch",
+      "binding_url": "bindings_oculus_touch.json"
+    }
+  ],
+  "localization": [
+    {
+      "language_tag": "en_US",
+      "/actions/global": "Subnautica VR Cheats",
+      "/actions/global/in/togglemenu": "Toggle Cheat Menu"
+    }
+  ]
+}
