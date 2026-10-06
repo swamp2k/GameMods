@@ -30,6 +30,22 @@ jobs:
       - name: Publish portable test build
         run: dotnet publish Subnautica/VR-Cheat-Menu/SubnauticaVRCheats.csproj -c Release -r win-x64 --self-contained true -o artifacts/SubnauticaVRCheats
 
+      - name: Verify test package
+        shell: pwsh
+        run: |
+          $required = @(
+            "artifacts/SubnauticaVRCheats/SubnauticaVRCheats.exe",
+            "artifacts/SubnauticaVRCheats/openvr_api.dll",
+            "artifacts/SubnauticaVRCheats/bindings/actions.json",
+            "artifacts/SubnauticaVRCheats/bindings/bindings_oculus_touch.json"
+          )
+
+          foreach ($path in $required) {
+            if (-not (Test-Path $path)) {
+              throw "Published package is missing required file: $path"
+            }
+          }
+
       - name: Upload test build
         uses: actions/upload-artifact@v4
         with:
