@@ -14,7 +14,8 @@ namespace VRCheatMenu
     internal static class MenuConfig
     {
         public const string SpawnDefaults =
-@"# VR Cheat Menu - spawn-menu:  Label | TechType-navn
+@"# defaults-version: 1
+# VR Cheat Menu - spawn-menu:  Label | TechType-navn
 # Hver linje bliver til knappen 'spawn <navn>'. Gem og start spillet igen.
 Seamoth | seamoth
 Cyclops | cyclops
@@ -51,10 +52,16 @@ Nickel | nickel
 ";
 
         public const string Defaults =
-@"# VR Cheat Menu - én knap pr. linje:  Label | konsolkommando
+@"# defaults-version: 2
+# VR Cheat Menu - én knap pr. linje:  Label | konsolkommando
 # Gem filen og start spillet igen for at se ændringerne.
 Oxygen | oxygen
 No Energy | noenergy
+No Hunger/Thirst | nosurvival
+No Pressure | nopressure
+Fast Build | fastbuild
+Fast Scan | fastscan
+Fast Grow | fastgrow
 No Cost | nocost
 Day | day
 Night | night
@@ -64,6 +71,15 @@ Freecam | freecam
 
         public static List<MenuEntry> Load(string path, string defaults = Defaults)
         {
+            // Første linje er "# defaults-version: N". Mangler den nyeste, gemmes den gamle fil som .old,
+            // og en ny med de nyeste standardknapper oprettes.
+            string marker = defaults.Substring(0, defaults.IndexOf('\n')).Trim();
+            if (File.Exists(path) && !File.ReadAllText(path).Contains(marker))
+            {
+                File.Copy(path, path + ".old", true);
+                File.Delete(path);
+                Plugin.Log.LogInfo($"Gammel knapfil gemt som {path}.old - opretter ny med nyeste standardknapper.");
+            }
             if (!File.Exists(path))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(path));
