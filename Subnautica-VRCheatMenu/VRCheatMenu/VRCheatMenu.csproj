@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>VRCheatMenu</AssemblyName>
+    <RootNamespace>VRCheatMenu</RootNamespace>
+    <Version>1.1.0</Version>
+    <LangVersion>latest</LangVersion>
+    <!-- Ændr stien, hvis Subnautica ligger et andet sted (eller: dotnet build -p:SubnauticaDir=...) -->
+    <SubnauticaDir Condition="'$(SubnauticaDir)' == ''">D:\SteamLibrary\steamapps\common\Subnautica\</SubnauticaDir>
+    <Managed>$(SubnauticaDir)Subnautica_Data\Managed\</Managed>
+    <NoWarn>$(NoWarn);CS0436</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <Reference Include="BepInEx"><HintPath>$(SubnauticaDir)BepInEx\core\BepInEx.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(SubnauticaDir)BepInEx\core\0Harmony.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Assembly-CSharp"><HintPath>$(Managed)Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Assembly-CSharp-firstpass"><HintPath>$(Managed)Assembly-CSharp-firstpass.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.dll"><HintPath>$(Managed)UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(Managed)UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UI"><HintPath>$(Managed)UnityEngine.UI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UIModule"><HintPath>$(Managed)UnityEngine.UIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(Managed)UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.TextMeshPro"><HintPath>$(Managed)Unity.TextMeshPro.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="SubmersedVR"><HintPath>$(SubnauticaDir)BepInEx\plugins\SubmersedVR.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="SteamVR">
+      <HintPath>$(Managed)SteamVR.dll</HintPath><Aliases>SteamVRRef</Aliases><Private>false</Private>
+    </Reference>
+    <Reference Include="SteamVR_Actions">
+      <HintPath>$(Managed)SteamVR_Actions.dll</HintPath><Aliases>SteamVRActions</Aliases><Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
