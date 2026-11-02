@@ -1,7 +1,7 @@
 # Session bookmark
 
 ## Doing
-Aligned BepInEx plugin metadata with the project version, as requested; published in PR #1.
+Aligned BepInEx plugin metadata with the project version and recorded the local DLL build/install procedure; published in PR #1.
 
 ## State
 - Reviewed main at `a9f392303c94913470f1c7dfbfc40e77eb1b8f76`, both README files, all three source/project files, recent commits, and open pull requests on 2026-11-02.
@@ -14,7 +14,21 @@ Aligned BepInEx plugin metadata with the project version, as requested; publishe
 - The documentation and version metadata fix are published on `docs/session-bookmark-2026-11-02` in PR #1. The distributed DLL has not been rebuilt.
 
 ## Next step
-Review PR #1, then build with the required game/mod assemblies and smoke-test plugin loading in Subnautica VR before replacing the distributed DLL.
+Build from the branch in PR #1 (or main after it is merged) using the local Subnautica installation with BepInEx 5 and SubmersedVR installed. The README documents a Release build; the project supports overriding SubnauticaDir.
+
+1. Open PowerShell in `Subnautica-VRCheatMenu/VRCheatMenu`.
+2. Run the following, adjusting the game path (the trailing doubled backslash avoids quoting issues when passing the path to dotnet):
+
+   ```powershell
+   dotnet build -c Release -p:SubnauticaDir="D:\\SteamLibrary\\steamapps\\common\\Subnautica\\\\"
+   ```
+
+3. Expected output: `bin\\Release\\net472\\VRCheatMenu.dll`.
+4. With the game closed, copy the built DLL to `<Subnautica>\\BepInEx\\plugins\\VRCheatMenu\\VRCheatMenu.dll`.
+5. Start Subnautica in SteamVR and check `BepInEx\\LogOutput.log` for plugin loading and version 1.3.0; smoke-test opening the menu and using its buttons.
+6. After validation, refresh the repository's packaged copy at `Subnautica-VRCheatMenu/dist/VRCheatMenu/VRCheatMenu.dll`.
+
+This procedure is based on the README and project configuration. The build, expected output, and runtime behavior have not been verified in this session.
 
 ## Blocked by
 - Build/runtime validation has not been performed. Required local game/mod assemblies and a VR runtime are not supplied in the repository.
