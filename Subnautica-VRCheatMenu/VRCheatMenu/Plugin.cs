@@ -15,7 +15,7 @@ using UnityEngine.UI;
 
 namespace VRCheatMenu
 {
-    [BepInPlugin(GUID, "VR Cheat Menu", "1.0.0")]
+    [BepInPlugin(GUID, "VR Cheat Menu", "1.3.0")]
     [BepInDependency("SubmersedVR")]
     public class Plugin : BaseUnityPlugin
     {
