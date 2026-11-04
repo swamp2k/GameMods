@@ -1,9 +1,11 @@
 # Session bookmark
 
 ## Doing
-Aligned BepInEx plugin metadata with the project version and recorded the local DLL build/install procedure; published in PR #1.
+Awaiting review/merge of PR #1 and local build/runtime validation of Subnautica VR Cheat Menu 1.3.0. No further feature implementation authorized.
 
 ## State
+- Rechecked repository root, both instruction files on the PR branch, root/project READMEs, source files (`Plugin.cs`, `MenuConfig.cs`, `.csproj`), recent commits, and open PRs on 2026-11-04. Root `main` still lacks AGENTS.md, CLAUDE.md, NOW.md and HANDOVER.md; PR #1 supplies the first three. Its AGENTS.md and CLAUDE.md have matching blob SHAs and required session rules.
+- PR #1 remains open, mergeable according to GitHub search, and contains the 1.3.0 metadata correction plus synchronized instructions/bookmark. Code remains unbuilt and untested in VR here.
 - Reviewed main at `a9f392303c94913470f1c7dfbfc40e77eb1b8f76`, both README files, all three source/project files, recent commits, and open pull requests on 2026-11-02.
 - Neither root AGENTS.md nor CLAUDE.md existed. Added identical files with session-start, bookmark-update, and synchronization rules. No HANDOVER.md, NOW.md, or nested instruction files existed in the inspected tree.
 - The repository contains one mod: Subnautica-VRCheatMenu, targeting .NET Framework 4.7.2 with BepInEx 5, SubmersedVR, SteamVR, and local game assemblies. A distributable DLL is tracked under dist/; its correspondence to current source has not been verified.
@@ -14,7 +16,7 @@ Aligned BepInEx plugin metadata with the project version and recorded the local 
 - The documentation and version metadata fix are published on `docs/session-bookmark-2026-11-02` in PR #1. The distributed DLL has not been rebuilt.
 
 ## Next step
-Build from the branch in PR #1 (or main after it is merged) using the local Subnautica installation with BepInEx 5 and SubmersedVR installed. The README documents a Release build; the project supports overriding SubnauticaDir.
+Review and merge PR #1 when ready, then build from its merged main (or test its branch before merging) using the local Subnautica installation with BepInEx 5 and SubmersedVR installed. The README documents a Release build; the project supports overriding SubnauticaDir.
 
 1. Open PowerShell in `Subnautica-VRCheatMenu/VRCheatMenu`.
 2. Run the following, adjusting the game path (the trailing doubled backslash avoids quoting issues when passing the path to dotnet):
@@ -35,4 +37,4 @@ This procedure is based on the README and project configuration. The build, expe
 - Shell clone failed because the configured proxy was unreachable; GitHub connector access works and is used for inspection/publication.
 
 ## Updated
-2026-11-02
+2026-11-04
